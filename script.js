@@ -16,22 +16,29 @@ function validaCPF(cpf) {
     let soma = 0;
     for (let i = 10; i > 1; i--) {
       soma += numeros.charAt(10 - i) * i;
-
     }
+    console.log(soma);
+
+    let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+    if (resultado != digitos.charAt(0)) {
+      return false;
+    }
+    console.log(digitos.toString().charAt(0) + ' é a primeira posição da variavel soma');
+    true;
   }
+}
 
-  function validacao() {
-    console.log('Iniciando validação do CPF');
+function validacao() {
+  console.log('Iniciando validação do CPF');
 
-    let cpf = document.getElementById('cpf-digitado').value;
+  let cpf = document.getElementById('cpf-digitado').value;
 
-    let resultadoValidacao = validaCPF(cpf);
+  let resultadoValidacao = validaCPF(cpf);
 
-    if (resultadoValidacao) {
-      document.getElementById('success').style.display = 'block';
-    }
-    else {
-      document.getElementById('error').style.display = 'block'
-    }
+  if (resultadoValidacao) {
+    document.getElementById('success').style.display = 'block';
+  }
+  else {
+    document.getElementById('error').style.display = 'block'
   }
 }
