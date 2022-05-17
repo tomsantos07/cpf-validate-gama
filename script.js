@@ -17,7 +17,6 @@ function validaCPF(cpf) {
     for (let i = 10; i > 1; i--) {
       soma += numeros.charAt(10 - i) * i;
     }
-    console.log(soma);
 
     let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
 
@@ -25,16 +24,27 @@ function validaCPF(cpf) {
     if (resultado != digitos.charAt(0)) {
       return false;
     }
-    console.log(digitos.toString().charAt(0) + ' é a primeira posição da variavel soma');
-    true;
+    soma = 0;
+    numeros = cpf.substring(0, 10);
+    for (let k =11; k > 1; k --) {
+      soma += numeros.charAt(11 - k) * k;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+
+// Validacao do Segundo Digito
+    if (resultado != digitos.charAt(1)) {
+      return false;
+    }
+    return true;
   }
 }
 
 function validacao() {
   console.log('Iniciando validação do CPF');
+  document.getElementById('success').style.display = 'none';
+  document.getElementById('error').style.display = 'none';
 
   let cpf = document.getElementById('cpf-digitado').value;
-
   let resultadoValidacao = validaCPF(cpf);
 
   if (resultadoValidacao) {
