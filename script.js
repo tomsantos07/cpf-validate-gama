@@ -20,6 +20,8 @@ function validaCPF(cpf) {
     console.log(soma);
 
     let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+
+// Validação do primeiro dígito
     if (resultado != digitos.charAt(0)) {
       return false;
     }
