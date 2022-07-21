@@ -5,7 +5,6 @@ function validaCPF(cpf) {
   if (cpf.length != 11) {
     return false;
   }
-  else {
     // o substring funciona a partir de um ponto final e inicial, ele quebra o texto e retorna somente o que foi pedido
     // ex abaixo: a partir da posição 0, quero pegar 9 caracteres
     let numeros = cpf.substring(0, 9);
@@ -36,7 +35,6 @@ function validaCPF(cpf) {
       return false;
     }
     return true;
-  }
 }
 
 function validacao() {
